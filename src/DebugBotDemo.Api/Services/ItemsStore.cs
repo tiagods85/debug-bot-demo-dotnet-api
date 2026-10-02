@@ -23,7 +23,7 @@ public class ItemsStore
 
     public PagedResult GetPage(int page, int pageSize)
     {
-        var items = _items.Skip(page * pageSize).Take(pageSize).ToList();
+        var items = _items.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         return new PagedResult(items, _items.Count);
     }
 }
